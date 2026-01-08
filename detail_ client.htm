@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Planitech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="detail_%20client_fichiers/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="detail_%20client_fichiers/bootstrap-icons.css">
+
+  <style>
+    :root{
+      --p:#0d6efd;
+      --s:#6f42c1;
+      --grad: linear-gradient(135deg,var(--p),var(--s));
+    }
+
+    /* ✅ fond clean */
+    body{
+      background: #f8f9fa; /* Bootstrap light */
+    }
+
+    /* barre dégradée en haut */
+    .topbar{
+      height: 4px;
+      background: var(--grad);
+    }
+
+    /* Navbar */
+    .navbar{
+      background: rgba(255,255,255,.92) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,.06) !important;
+      box-shadow: 0 10px 22px rgba(0,0,0,.06);
+    }
+
+    .navbar-brand{ letter-spacing:.2px; }
+    .nav-link .bi{ margin-right:.25rem; }
+
+    /* logo badge */
+    .brand-badge{
+      width:34px;height:34px;
+      border-radius:12px;
+      background: var(--grad);
+      color:#fff;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-right:.55rem;
+      box-shadow: 0 10px 18px rgba(13,110,253,.18);
+    }
+
+    /* Nav links en “pill” */
+    .navbar .nav-link{
+      border-radius: 999px;
+      padding: .45rem .85rem;
+      font-weight: 600;
+      color: rgba(0,0,0,.72);
+      transition: .15s ease;
+    }
+    .navbar .nav-link:hover{
+      background: rgba(13,110,253,.10);
+      color: rgba(0,0,0,.85);
+    }
+
+    /* Dropdown */
+    .dropdown-menu{
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: 14px;
+      padding: .45rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+    }
+    .dropdown-item{
+      border-radius: 12px;
+      padding: .55rem .7rem;
+      font-weight: 600;
+      transition: .12s ease;
+    }
+    .dropdown-item:hover{
+      background: rgba(13,110,253,.10);
+    }
+    .dropdown-item .bi{ margin-right:.45rem; }
+    .dropdown-divider{
+      margin: .55rem .35rem;
+    }
+
+    /* Compte */
+    .role-pill{ color: inherit !important; opacity: .85; font-weight: 600; }
+
+    /* Bouton compte plus joli */
+    .btn-account{
+      border-radius: 999px;
+      padding: .45rem .8rem;
+      font-weight: 600;
+    }
+
+    main.container{
+      max-width: 1180px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+<div class="topbar"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand fw-semibold d-flex align-items-center" href="http://192.168.30.20:8000/">
+      <span class="brand-badge"><i class="bi bi-lightning-charge-fill"></i></span>
+      Planitech
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Basculer la navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+          
+
+          <li class="nav-item">
+            <a class="nav-link" href="http://192.168.30.20:8000/gestion/interventions/list">
+              <i class="bi bi-clipboard-check"></i> Interventions
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-calendar3"></i> Planning
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="http://192.168.30.20:8000/gestion/interventions/planning/jour">Jour</a></li>
+              <li><a class="dropdown-item" href="http://192.168.30.20:8000/gestion/interventions/planning/semaine">Semaine</a></li>
+
+              
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/interventions/planning_dispo">
+                    <i class="bi bi-person-lines-fill"></i> Planning dispo
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+
+
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear"></i> Gestion
+              </a>
+              <ul class="dropdown-menu">
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/techniciens/list">
+                    <i class="bi bi-person-badge"></i> Techniciens
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/clients/">
+                    <i class="bi bi-building"></i> Clients
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/partenaires/">
+                    <i class="bi bi-diagram-3"></i> Partenaires
+                  </a>
+                </li>
+
+                <li><hr class="dropdown-divider"></li>
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/forfaits/tarification">
+                    <i class="bi bi-cash-coin"></i> Tarification
+                  </a>
+                </li>
+
+                
+
+              </ul>
+            </li>
+          
+
+          
+            <li class="nav-item">
+              <a class="nav-link" href="http://192.168.30.20:8000/rh/menu">
+                <i class="bi bi-people"></i> Menu RH
+              </a>
+            </li>
+          
+
+          
+
+        
+      </ul>
+
+      
+        
+
+        <div class="d-flex align-items-center gap-2">
+          <div class="dropdown">
+            <a class="btn btn-outline-secondary btn-sm dropdown-toggle btn-account" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+              rh1
+              <span class="role-pill">(RH)</span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="http://192.168.30.20:8000/auth/profile">
+                  <i class="bi bi-person"></i> Mon profil
+                </a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item text-danger" href="http://192.168.30.20:8000/auth/logout">
+                  <i class="bi bi-box-arrow-right"></i> Déconnexion
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  
+    
+  
+
+  
+
+
+
+
+<div class="card shadow-sm border-0 overflow-hidden">
+
+  <div class="card-header calendar-header d-flex align-items-center justify-content-between">
+    <div class="d-flex flex-column">
+      <span class="text-white-50 text-uppercase fw-semibold" style="font-size: .8rem;">
+        Gestion
+      </span>
+
+      <div class="d-flex align-items-center gap-2 flex-wrap">
+        <span class="text-white fw-bold" style="font-size: 1.4rem;">
+          Client — Roubaix
+        </span>
+
+        
+          <span class="badge rounded-pill text-bg-warning px-3 py-2">
+            <i class="bi bi-diagram-3 me-1"></i> Client partenaire
+          </span>
+        
+      </div>
+
+      <span class="text-white-50 small">
+        Partenaire SAS
+      </span>
+
+      
+        <span class="text-white-50 small">
+          Appartient à :
+          <span class="text-white fw-semibold">Partenaire SAS</span>
+        </span>
+      
+    </div>
+
+    <div class="d-flex gap-2">
+      <a class="btn btn-light btn-sm" href="http://192.168.30.20:8000/gestion/clients/13/edit">← Retour</a>
+
+      <a class="btn btn-outline-light btn-sm" href="http://192.168.30.20:8000/gestion/clients/13/edit">
+        <i class="bi bi-pencil"></i> Modifier
+      </a>
+
+      <form method="post" action="/gestion/clients/13/delete" onsubmit="return confirm('Supprimer ce client ? Cette action est irréversible.');" class="d-inline">
+        <button type="submit" class="btn btn-danger btn-sm">
+          <i class="bi bi-trash"></i> Supprimer
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="row g-3">
+
+      <!-- ======= TYPE CLIENT (TRÈS VISIBLE) ======= -->
+      <div class="col-12">
+        <div class="p-3 border rounded type-strip d-flex align-items-center justify-content-between flex-wrap gap-3">
+
+          <div class="d-flex align-items-center gap-3">
+            <div class="type-icon">
+              
+                <i class="bi bi-diagram-3"></i>
+              
+            </div>
+
+            <div>
+              <div class="text-muted small">Type de client</div>
+
+              
+                <div class="fw-bold fs-5">Client partenaire</div>
+                <div class="text-muted">
+                  Appartient à :
+                  <span class="fw-semibold">Partenaire SAS</span>
+
+                  <span class="ms-2 badge text-bg-light border">
+                    ID partenaire : 1
+                  </span>
+                </div>
+
+                <div class="small text-muted mt-1">
+                  part1@example.com
+                   • +33311111111
+                   • Lille
+                </div>
+              
+            </div>
+          </div>
+
+          <div class="text-end">
+            
+              <span class="badge rounded-pill text-bg-warning px-3 py-2">
+                <i class="bi bi-link-45deg me-1"></i> Lié à un partenaire
+              </span>
+            
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Identité -->
+      <div class="col-12 col-lg-6">
+        <div class="p-3 border rounded bg-light-subtle h-100">
+          <div class="fw-semibold mb-2">Identité</div>
+
+          <div><span class="text-muted">Raison sociale :</span>
+            <span class="fw-semibold">Client Partenaire SAS - Site Roubaix</span>
+          </div>
+          <div><span class="text-muted">Nom commercial :</span> Roubaix</div>
+          <div><span class="text-muted">Entreprise :</span> Partenaire SAS</div>
+          <div><span class="text-muted">Code client :</span> —</div>
+
+          <hr class="my-2">
+
+          <div><span class="text-muted">SIRET :</span> None</div>
+          <div><span class="text-muted">SIREN :</span> None</div>
+          <div><span class="text-muted">Code NAP :</span> None</div>
+          <div><span class="text-muted">TVA intra :</span> None</div>
+        </div>
+      </div>
+
+      <!-- Localisation -->
+      <div class="col-12 col-lg-6">
+        <div class="p-3 border rounded bg-light-subtle h-100">
+          <div class="fw-semibold mb-2">Localisation</div>
+
+          <div class="text-muted small mb-1">Adresse</div>
+          <div class="fw-semibold">
+            None 3 bd Gambetta
+          </div>
+
+          
+
+          <div class="text-muted small">
+            59100 Roubaix
+          </div>
+
+          <hr class="my-2">
+
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge text-bg-light border">
+              <span class="text-muted">Département :</span>
+              <span class="ms-1 fw-semibold">None</span>
+            </span>
+            <span class="badge text-bg-light border">
+              <span class="text-muted">Région :</span>
+              <span class="ms-1 fw-semibold">None</span>
+            </span>
+          </div>
+
+          <div class="small text-muted mt-2">
+            Ces informations servent à proposer les techniciens les plus proches.
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacts -->
+      <div class="col-12">
+        <div class="p-3 border rounded bg-light-subtle">
+          <div class="d-flex align-items-center justify-content-between">
+            <div class="fw-semibold mb-0">Contacts clients</div>
+            <div class="small text-muted">Gestion des contacts via “Modifier”</div>
+          </div>
+
+          
+            <div class="table-responsive mt-2">
+              <table class="table table-sm align-middle mb-0">
+                <thead>
+                  <tr class="text-muted">
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Fonction</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td class="fw-semibold">Chrieo</td>
+                      <td>Pierre</td>
+                      <td>RH</td>
+                      <td>0758585474</td>
+                      <td>
+                        
+                          <a href="mailto:a@gmail.com">a@gmail.com</a>
+                        
+                      </td>
+                    </tr>
+                  
+                    <tr>
+                      <td class="fw-semibold">Tyrie</td>
+                      <td>Ruiz</td>
+                      <td>CEO</td>
+                      <td>06050805</td>
+                      <td>
+                        
+                          —
+                        
+                      </td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="col-12">
+        <div class="p-3 border rounded bg-light-subtle">
+          <div class="fw-semibold mb-2">Notes</div>
+          <div class="text-muted">—</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .calendar-header{ background: linear-gradient(135deg, #0d6efd, #6f42c1); }
+
+  /* Bandeau "Type client" */
+  .type-strip{
+    background: linear-gradient(135deg, rgba(13,110,253,.10), rgba(111,66,193,.08));
+  }
+  .type-icon{
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,.65);
+    border: 1px solid rgba(13,110,253,.15);
+    font-size: 1.2rem;
+  }
+</style>
+
+
+</main>
+
+<script src="detail_%20client_fichiers/bootstrap.bundle.min.js"></script>
+
+</body><div aria-label="dashlane webcard" data-dashlanecreated="1" style="opacity: 1 !important; position: fixed !important; z-index: 2147483647 !important; pointer-events: auto !important; visibility: visible !important; transform: none !important; clip-path: none !important; filter: none !important; mask: none !important; display: block !important;"></div></html>

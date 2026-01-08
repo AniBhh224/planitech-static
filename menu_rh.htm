@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Planitech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="menu_rh_fichiers/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="menu_rh_fichiers/bootstrap-icons.css">
+
+  <style>
+    :root{
+      --p:#0d6efd;
+      --s:#6f42c1;
+      --grad: linear-gradient(135deg,var(--p),var(--s));
+    }
+
+    /* ✅ fond clean */
+    body{
+      background: #f8f9fa; /* Bootstrap light */
+    }
+
+    /* barre dégradée en haut */
+    .topbar{
+      height: 4px;
+      background: var(--grad);
+    }
+
+    /* Navbar */
+    .navbar{
+      background: rgba(255,255,255,.92) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,.06) !important;
+      box-shadow: 0 10px 22px rgba(0,0,0,.06);
+    }
+
+    .navbar-brand{ letter-spacing:.2px; }
+    .nav-link .bi{ margin-right:.25rem; }
+
+    /* logo badge */
+    .brand-badge{
+      width:34px;height:34px;
+      border-radius:12px;
+      background: var(--grad);
+      color:#fff;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-right:.55rem;
+      box-shadow: 0 10px 18px rgba(13,110,253,.18);
+    }
+
+    /* Nav links en “pill” */
+    .navbar .nav-link{
+      border-radius: 999px;
+      padding: .45rem .85rem;
+      font-weight: 600;
+      color: rgba(0,0,0,.72);
+      transition: .15s ease;
+    }
+    .navbar .nav-link:hover{
+      background: rgba(13,110,253,.10);
+      color: rgba(0,0,0,.85);
+    }
+
+    /* Dropdown */
+    .dropdown-menu{
+      border: 1px solid rgba(0,0,0,.07);
+      border-radius: 14px;
+      padding: .45rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+    }
+    .dropdown-item{
+      border-radius: 12px;
+      padding: .55rem .7rem;
+      font-weight: 600;
+      transition: .12s ease;
+    }
+    .dropdown-item:hover{
+      background: rgba(13,110,253,.10);
+    }
+    .dropdown-item .bi{ margin-right:.45rem; }
+    .dropdown-divider{
+      margin: .55rem .35rem;
+    }
+
+    /* Compte */
+    .role-pill{ color: inherit !important; opacity: .85; font-weight: 600; }
+
+    /* Bouton compte plus joli */
+    .btn-account{
+      border-radius: 999px;
+      padding: .45rem .8rem;
+      font-weight: 600;
+    }
+
+    main.container{
+      max-width: 1180px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+<div class="topbar"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand fw-semibold d-flex align-items-center" href="http://192.168.30.20:8000/">
+      <span class="brand-badge"><i class="bi bi-lightning-charge-fill"></i></span>
+      Planitech
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Basculer la navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+          
+
+          <li class="nav-item">
+            <a class="nav-link" href="http://192.168.30.20:8000/gestion/interventions/list">
+              <i class="bi bi-clipboard-check"></i> Interventions
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-calendar3"></i> Planning
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="http://192.168.30.20:8000/gestion/interventions/planning/jour">Jour</a></li>
+              <li><a class="dropdown-item" href="http://192.168.30.20:8000/gestion/interventions/planning/semaine">Semaine</a></li>
+
+              
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/interventions/planning_dispo">
+                    <i class="bi bi-person-lines-fill"></i> Planning dispo
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+
+
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear"></i> Gestion
+              </a>
+              <ul class="dropdown-menu">
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/techniciens/list">
+                    <i class="bi bi-person-badge"></i> Techniciens
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/clients/">
+                    <i class="bi bi-building"></i> Clients
+                  </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/partenaires/">
+                    <i class="bi bi-diagram-3"></i> Partenaires
+                  </a>
+                </li>
+
+                <li><hr class="dropdown-divider"></li>
+
+                <li>
+                  <a class="dropdown-item" href="http://192.168.30.20:8000/gestion/forfaits/tarification">
+                    <i class="bi bi-cash-coin"></i> Tarification
+                  </a>
+                </li>
+
+                
+
+              </ul>
+            </li>
+          
+
+          
+            <li class="nav-item">
+              <a class="nav-link" href="http://192.168.30.20:8000/rh/menu">
+                <i class="bi bi-people"></i> Menu RH
+              </a>
+            </li>
+          
+
+          
+
+        
+      </ul>
+
+      
+        
+
+        <div class="d-flex align-items-center gap-2">
+          <div class="dropdown">
+            <a class="btn btn-outline-secondary btn-sm dropdown-toggle btn-account" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i>
+              rh1
+              <span class="role-pill">(RH)</span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="http://192.168.30.20:8000/auth/profile">
+                  <i class="bi bi-person"></i> Mon profil
+                </a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item text-danger" href="http://192.168.30.20:8000/auth/logout">
+                  <i class="bi bi-box-arrow-right"></i> Déconnexion
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      
+
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  
+    
+  
+
+  
+
+<div class="card shadow-sm border-0 overflow-hidden">
+
+  <!-- HEADER -->
+  <div class="card-header calendar-header d-flex align-items-center justify-content-between">
+    <div class="d-flex flex-column">
+      <span class="text-white-50 text-uppercase fw-semibold" style="font-size: .8rem;">
+        Espace RH
+      </span>
+      <span class="text-white fw-bold" style="font-size: 1.4rem;">
+        Menu principal — Interventions du 08/01/2026
+      </span>
+    </div>
+
+    <div class="btn-group">
+      <a class="btn btn-outline-light btn-sm" href="http://192.168.30.20:8000/gestion/interventions/planning/jour?d=2026-01-08">
+        <i class="bi bi-calendar-day"></i> Jour
+      </a>
+      <a class="btn btn-outline-light btn-sm" href="http://192.168.30.20:8000/gestion/interventions/planning/semaine?d=2026-01-08">
+        <i class="bi bi-calendar-week"></i> Semaine
+      </a>
+      <a class="btn btn-outline-light btn-sm" href="http://192.168.30.20:8000/gestion/interventions/planning/mois?d=2026-01-08">
+        <i class="bi bi-calendar-month"></i> Mois
+      </a>
+    </div>
+  </div>
+
+  <!-- BANDEAU LEGENDE (sans bouton) -->
+  <div class="card-body pb-3 border-bottom">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <div class="legend d-flex align-items-center gap-3 small text-muted">
+        <span class="legend-dot dot-planifiee"></span> Planifiée
+        <span class="legend-dot dot-encours"></span> En cours
+        <span class="legend-dot dot-terminee"></span> Terminée
+        <span class="legend-dot dot-annulee"></span> Annulée
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOC 1 : GROSSES CARTES STATS -->
+  <div class="card-body pb-3 pt-3">
+    <h5 class="fw-semibold mb-3">Vue d’ensemble RH</h5>
+    <div class="row g-3">
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="big-tile h-100">
+          <i class="bi bi-clipboard-data big-tile-icon"></i>
+          <div class="big-tile-label">Interventions aujourd’hui</div>
+          <div class="big-tile-value">0</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="big-tile h-100">
+          <i class="bi bi-hourglass-split big-tile-icon"></i>
+          <div class="big-tile-label">Interventions à venir</div>
+          <div class="big-tile-value">0</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="big-tile h-100">
+          <i class="bi bi-person-workspace big-tile-icon"></i>
+          <div class="big-tile-label">Techniciens</div>
+          <div class="big-tile-value">0</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="big-tile h-100">
+          <i class="bi bi-building big-tile-icon"></i>
+          <div class="big-tile-label">Clients actifs</div>
+          <div class="big-tile-value">0</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOC 2 : GRANDS RACCOURCIS -->
+  <div class="card-body border-top pb-4">
+    <h5 class="fw-semibold mb-3">Accès rapide</h5>
+
+    <div class="row g-3">
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/interventions/planning/semaine?d=2026-01-08">
+          <i class="bi bi-calendar-week menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Planning</div>
+            <div class="menu-tile-sub">Vue globale des interventions</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/interventions/list">
+          <i class="bi bi-clipboard-check menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Interventions</div>
+            <div class="menu-tile-sub">Rechercher, filtrer, consulter</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/techniciens/list">
+          <i class="bi bi-person-workspace menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Techniciens</div>
+            <div class="menu-tile-sub">Fiches, disponibilité, affectations</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/clients">
+          <i class="bi bi-building menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Clients</div>
+            <div class="menu-tile-sub">Liste, historique, interventions</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/partenaires">
+          <i class="bi bi-diagram-3 menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Partenaires</div>
+            <div class="menu-tile-sub">Transporteurs &amp; prestataires</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/forfaits">
+          <i class="bi bi-cash-coin menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Tarifs</div>
+            <div class="menu-tile-sub">Zones, déplacements, forfaits</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <a class="menu-tile" href="http://192.168.30.20:8000/gestion/rapports">
+          <i class="bi bi-bar-chart-line menu-tile-icon"></i>
+          <div>
+            <div class="menu-tile-title">Rapports RH</div>
+            <div class="menu-tile-sub">Heures, synthèses, export</div>
+          </div>
+        </a>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <!-- BLOC TECHNICIENS -->
+  <div class="card-body border-top pb-4">
+    <h5 class="fw-semibold mb-3">Techniciens</h5>
+
+    <div class="table-responsive">
+      <table class="table table-sm table-hover align-middle m-0">
+        <thead class="table-light">
+          <tr>
+            <th style="width:40px;"></th>
+            <th>Nom</th>
+            <th>Prénom</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td colspan="3" class="text-center text-muted py-3">
+                Aucun technicien enregistré
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BLOC 3 : INTERVENTIONS DU JOUR + bouton pilule -->
+<div class="px-3 pt-4 pb-2 d-flex align-items-center justify-content-between">
+    
+    <h5 class="fw-semibold mb-0">
+      Interventions du jour
+    </h5>
+
+    <a class="btn-add-intervention" href="http://192.168.30.20:8000/gestion/interventions/ajout">
+      <span class="btn-add-icon">
+        <i class="bi bi-plus-lg"></i>
+      </span>
+      <span class="btn-add-label">Nouvelle intervention</span>
+    </a>
+
+</div>
+
+
+
+  <div class="table-responsive">
+    <table class="table table-sm table-hover align-middle m-0">
+      <thead class="table-light sticky-head">
+        <tr>
+          <th style="width:90px">Heure</th>
+          <th style="width:120px">Ticket</th>
+          <th>Type</th>
+          <th>Partenaire</th>
+          <th>Client</th>
+          <th style="width:80px">Tech.</th>
+          <th style="width:110px">Statut</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+          <tr>
+            <td colspan="7" class="text-center text-muted py-4">Aucune intervention aujourd'hui</td>
+          </tr>
+        
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+<style>
+  .calendar-header{
+    background: linear-gradient(135deg, #0d6efd, #6f42c1);
+  }
+  .legend-dot{ width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:.35rem; }
+  .dot-planifiee{background:#0d6efd;}
+  .dot-encours{background:#ffc107;}
+  .dot-terminee{background:#198754;}
+  .dot-annulee{background:#6c757d;}
+
+  .chip{
+    display:inline-block;
+    padding:.15rem .45rem;
+    font-size:.75rem;
+    line-height:1;
+    border-radius:999px;
+    background:rgba(13,110,253,.08);
+    color:#0d6efd;
+    border:1px solid rgba(13,110,253,.2);
+  }
+  .chip-muted{
+    background:rgba(108,117,125,.08);
+    color:#495057;
+    border-color:rgba(108,117,125,.2);
+  }
+
+  .sticky-head th{
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: saturate(160%) blur(6px);
+  }
+
+  .row-status-planifiee { border-left: 4px solid rgba(13,110,253,.35); }
+  .row-status-en_cours  { border-left: 4px solid rgba(255,193,7,.55); }
+  .row-status-terminee  { border-left: 4px solid rgba(25,135,84,.55); }
+  .row-status-annulee   { border-left: 4px solid rgba(108,117,125,.55); }
+  .row-status-autre     { border-left: 4px solid rgba(13,202,240,.45); }
+
+  .big-tile{
+    border-radius:1rem;
+    padding:1rem;
+    background:#fff;
+    border:1px solid rgba(0,0,0,.05);
+  }
+  .big-tile-icon{
+    font-size:1.8rem;
+    margin-bottom:.25rem;
+  }
+  .big-tile-label{
+    font-size:.8rem;
+    color:#6c757d;
+    text-transform:uppercase;
+  }
+  .big-tile-value{
+    font-size:1.6rem;
+    font-weight:700;
+  }
+
+  .menu-tile{
+    display:flex;
+    gap:1rem;
+    padding:1rem;
+    border-radius:1rem;
+    border:1px solid rgba(0,0,0,.05);
+    background:white;
+    text-decoration:none;
+    color:inherit;
+    transition:.1s ease;
+  }
+  .menu-tile:hover{
+    background:#f8f9fa;
+    box-shadow:0 0.2rem 0.5rem rgba(0,0,0,.04);
+  }
+  .menu-tile-icon{
+    font-size:1.8rem;
+  }
+.btn-add-intervention{
+    display:inline-flex;
+    align-items:center;
+    gap:.55rem;
+    padding:.40rem 1.1rem;
+    border-radius:999px;
+    border:1px solid rgba(13,110,253,.4);
+    background:#ffffff;
+    color:#0d6efd;
+    font-size:.9rem;
+    text-decoration:none;
+    transition:all .20s ease;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+
+.btn-add-intervention:hover{
+    background:linear-gradient(135deg,#0d6efd,#6f42c1);
+    border-color:transparent;
+    color:#fff;
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 6px 16px rgba(0,0,0,.18);
+}
+
+.btn-add-icon{
+    width:28px;
+    height:28px;
+    flex-shrink:0;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#0d6efd,#6f42c1);
+    color:#fff;
+    font-size:.95rem;
+    transition:all .20s ease;
+}
+
+.btn-add-intervention:hover .btn-add-icon{
+    background:rgba(255,255,255,.25);
+}
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("tr[data-href]").forEach(row => {
+    row.addEventListener("click", e => {
+      if (!e.target.closest("a,button")) {
+        const href = row.getAttribute("data-href");
+        if (href) window.location = href;
+      }
+    });
+  });
+});
+</script>
+
+
+</main>
+
+<script src="menu_rh_fichiers/bootstrap.bundle.min.js"></script>
+
+</body></html>
